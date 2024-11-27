@@ -131,7 +131,8 @@ function populateEntriesJson(json) {
   
   // build new entries
   // json[1].forEach(entry => createBookEntry(entry));
-  for (let i = 0; i < 10; i++) {
+  let i = 0;
+  for (; i < 10; i++) {
     createBookEntry(json[i]);
   }
 
