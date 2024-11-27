@@ -66,7 +66,7 @@ function createBookEntry(entry) {
 
   // create image element for book cover
   let img = document.createElement("img");
-  img.src = imgBase + placeholder_img_url;
+  img.src = imgBase + entry.Barcode + "-M.jpg";
   img.alt = entry.Title + ", by " + entry.Author;
 
   // create figure caption element
