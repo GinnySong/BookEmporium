@@ -81,9 +81,14 @@ section {
   }
 } */
 
-@media (max-width: 600px) { 
+@media (max-width: 600px) {
   .navbar-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
   }
 }
