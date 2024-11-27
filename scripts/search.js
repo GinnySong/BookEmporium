@@ -173,6 +173,10 @@ function viewCollection() {
     // populate the entries based on the data from the search query
     // populateEntries();
 
+    let header = document.querySelector("h2.invisible");
+    header.classList.remove("invisible");
+    header.classList.add("visible");
+
     viewCollection();
   });
 })();
