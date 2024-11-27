@@ -6,7 +6,7 @@
 const queryBase = "https://openlibrary.org/search.json?";
 const imgBase = "https://covers.openlibrary.org/b/isbn/";
 const placeholder_img_url = "9780007136599-M.jpg";
-const default_data = "../data/example_book_collection.json";
+const default_data = "../BookEmporium/data/example_book_collection.json";
 const container = document.getElementById("books-container");
 const form = document.getElementById("search-form");
 
