@@ -14,15 +14,14 @@
   padding: 1em;
 }
 
-/* .book img {
-  max-width: 100%;
-} */
+.book img {
+  border: 2px solid black;
+}
 
 .book figcaption {
   text-align: center;
 }
 
 .book [type="button"] {
-  /* max-width: 100%; */
   margin-top: 5px;
 }
