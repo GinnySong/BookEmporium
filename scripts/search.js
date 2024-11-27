@@ -131,32 +131,13 @@ function populateEntriesJson(json) {
   
   // build new entries
   // json[1].forEach(entry => createBookEntry(entry));
-
   for (let i = 0; i < 10; i++) {
     createBookEntry(json[i]);
   }
 
-  // // get array of the figure elements that are children of books-container
-  // // let figuresArray = container.querySelectorAll("figure");
-
-  // // loop through all of the figures and populate their information with the new search data
-  // figuresArray.forEach((figure) => {
-  //   // update image element for book cover
-  //   let img = figure.querySelector("img");
-  //   img.src = imgBase + placeholder_img_url;
-  //   img.alt = "The Fellowship of the Ring, by J.R.R. Tolkien";
-
-  //   // update figure caption
-  //   let caption = figure.querySelector("figcaption");
-  //   let captionText = document.createTextNode("The Fellowship of the Ring, J.R.R. Tolkien");
-  //   caption.replaceChild(captionText, caption.childNodes[0]);
-
-  //   // update button ("Add" btn if not favorited, otherwise a different button(?))
-  //   // TO BE IMPLEMENTED
-  //   let btn = figure.querySelector("input");
-  //   // btn.removeEventListener('click', addBook);
-  //   btn.addEventListener('click', addBook);
-  // });
+  // update results counter
+  let span = document.getElementById("book-num");
+  span.textContent = i;
 
   console.log("data populated"); // FOR TESTING
 }
