@@ -133,7 +133,7 @@ function populateEntriesJson(json) {
   // json[1].forEach(entry => createBookEntry(entry));
 
   for (let i = 0; i < 10; i++) {
-    createBookEntry(json[1][i]);
+    createBookEntry(json[0][i]);
   }
 
   // // get array of the figure elements that are children of books-container
