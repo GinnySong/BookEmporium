@@ -1,0 +1,28 @@
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 1.5em;
+  row-gap: 1em;
+  /* margin: 5px; */
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  height: auto;
+  padding: 1em;
+}
+
+/* .book img {
+  max-width: 100%;
+} */
+
+.book figcaption {
+  text-align: center;
+}
+
+.book [type="button"] {
+  /* max-width: 100%; */
+  margin-top: 5px;
+}
