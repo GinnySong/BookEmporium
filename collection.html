@@ -14,12 +14,13 @@
   <!-- css files -->
   <link rel="stylesheet" href="styles/shared.css">
   <link rel="stylesheet" href="styles/books.css">
+  <link rel="stylesheet" href="styles/forms.css">
 </head>
 
 <body>
   <header>
     <!-- nav bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Your Book Emporium</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -58,6 +59,7 @@
 
       <form id="search-form">
         <fieldset>
+          <legend>Filter Collection</legend>
           <label for="search-by">Filter By:</label>
           <select name="search-by" id="search-by">
             <option>Title</option>
@@ -65,8 +67,8 @@
             <option>Genre</option>
           </select>
           <label for="search-query">Keyword:</label>
-          <input type="text" name="search-query" id="search-query">
-          <input type="submit" value="Search">
+          <input type="text" name="search-query" id="search-query" placeholder="keyword">
+          <input type="submit" value="Filter">
         </fieldset>
       </form>
     </section>
