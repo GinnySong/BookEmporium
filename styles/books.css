@@ -25,7 +25,8 @@
   margin-top: 5px;
 }
 
-@media (max-width: 600px) {
+/* medium and larger screens */
+@media (max-width: 768px) {
   #books-container {
     grid-template-columns: repeat(1, 1fr);
   }
