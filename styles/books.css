@@ -10,13 +10,14 @@
   flex-direction: column;
   max-width: 90%;
   height: auto;
-  padding: 1em;
+  padding: .75em;
   transition: padding .35s, background-color .35s ease;
 }
 
 .book:hover {
   padding: 1.25em;
   background-color: var(--primary-transparent);
+  cursor: pointer;
 }
 
 .book img {

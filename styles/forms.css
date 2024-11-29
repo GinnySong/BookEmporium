@@ -5,6 +5,10 @@ form {
   border-radius: 25px;
 }
 
+form input[type="text"]:read-only {
+  background-color: #f0f0f0;
+}
+
 form label {
   display: block;
   margin: 1em .25em .25em 0;
