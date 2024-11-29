@@ -88,13 +88,13 @@ function populateEntries(json) {
 }
 
 function buildUrl() {
+  // query input has 'required' attribute, so will not be empty
   let query = form.elements["search-query"].value;
   query = query.replaceAll(" ", "+"); // replace spaces with +
   return queryBase + "q=" + query;
 }
 
 function searchCollection() {
-  validateQuery();
   let url = buildUrl();
   console.log(url); // FOR TESTING
 
