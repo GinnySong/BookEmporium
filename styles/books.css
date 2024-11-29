@@ -1,6 +1,6 @@
 #books-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   column-gap: 1.5em;
   row-gap: 1em;
 }
@@ -22,12 +22,12 @@
 }
 
 .book [type="button"] {
-  margin-top: 5px;
+  margin-top: .25em;
 }
 
-/* medium and larger screens */
-@media (max-width: 768px) {
+/* medium screens and up */
+@media (min-width: 768px) {
   #books-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
