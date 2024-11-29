@@ -4,47 +4,11 @@
 
 // declare constant variables
 const queryBase = "https://openlibrary.org/search.json?";
-const imgBase = "https://covers.openlibrary.org/b/isbn/";
+const imgBase = "https://covers.openlibrary.org/b/id/";
 const placeholder_img_url = "9780007136599-M.jpg";
 const default_data = "../BookEmporium/data/example_book_collection.json";
 const container = document.getElementById("books-container");
 const form = document.getElementById("search-form");
-
-function createElements() {
-  // create a bunch of DOM elements
-
-  // use a for loop where n=number of json data entries (for now, hard-coding)
-  for (let i = 0; i < 6; i++) {
-    // create figure element
-    let figure = document.createElement("figure");
-    figure.classList.add("book");
-
-    // create image element for book cover
-    let img = document.createElement("img");
-    img.src = imgBase + placeholder_img_url;
-    img.alt = "placeholder alt text";
-
-    // create figure caption element
-    let caption = document.createElement("figcaption");
-    let captionText = document.createTextNode("placeholder text");
-
-    // // create button
-    // let btn = document.createElement("input");
-    // btn.type = "button";
-    // btn.value = "Add";
-    // btn.classList.add("search-entry-btn", "add-btn");
-
-    // append elements to their respective parents
-    caption.appendChild(captionText);
-    figure.appendChild(img);
-    figure.appendChild(caption);
-    // figure.appendChild(btn);
-
-    container.append(figure);
-  }
-
-  console.log("elements created"); // FOR TESTING
-}
 
 // separate function for creating button elements in case i get the importing functions working
 function createBtn() {
@@ -66,12 +30,12 @@ function createBookEntry(entry) {
 
   // create image element for book cover
   let img = document.createElement("img");
-  img.src = imgBase + entry.Barcode + "-M.jpg";
-  img.alt = entry.Title + ", by " + entry.Author;
+  img.src = imgBase + entry.cover_i + "-M.jpg";
+  img.alt = entry.title + ", by " + entry.author_name;
 
   // create figure caption element
   let caption = document.createElement("figcaption");
-  let captionText = document.createTextNode(entry.Title + ", " + entry.Author);
+  let captionText = document.createTextNode(entry.title + ", by " + entry.author_name);
 
   // // create button
   // let btn = document.createElement("input");
@@ -87,54 +51,34 @@ function createBookEntry(entry) {
 
   container.append(figure);
 
-
-  console.log("element created: " + entry.Title); // FOR TESTING
+  console.log("element created: " + entry.title); // FOR TESTING
 }
 
 function addBook() {
+  // TO BE IMPLEMENTED
   // save book to local storage, add the book data to the json file(?), change the button's text to "favorited"
   this.value = "Favorited";
   console.log("adding book!");
 }
 
-function populateEntries() {
-  // get array of the figure elements that are children of books-container
-  let figuresArray = container.querySelectorAll("figure");
-
-  // loop through all of the figures and populate their information with the new search data
-  figuresArray.forEach((figure) => {
-    // update image element for book cover
-    let img = figure.querySelector("img");
-    img.src = imgBase + placeholder_img_url;
-    img.alt = "The Fellowship of the Ring, by J.R.R. Tolkien";
-
-    // update figure caption
-    let caption = figure.querySelector("figcaption");
-    let captionText = document.createTextNode("The Fellowship of the Ring, J.R.R. Tolkien");
-    caption.replaceChild(captionText, caption.childNodes[0]);
-
-    // update button ("Add" btn if not favorited, otherwise a different button(?))
-    // TO BE IMPLEMENTED
-    let btn = figure.querySelector("input");
-    // btn.removeEventListener('click', addBook);
-    btn.addEventListener('click', addBook);
-  });
-
-  console.log("data populated"); // FOR TESTING
-}
-
-function populateEntriesJson(json) {
+function populateEntries(json) {
   // remove old entries
   for (let child of Array.from(container.children)) {
     child.remove();
   }
-  
+
   // build new entries
-  // json[1].forEach(entry => createBookEntry(entry));
   let i = 0;
-  for (; i < 10; i++) {
-    createBookEntry(json[i]);
-  }
+  json.docs.forEach(entry => {
+    if (i == 10) {
+      return;
+    }
+    // skip entries with no isbn
+    if (typeof entry.isbn != 'undefined') {
+      createBookEntry(entry);
+      i++;
+    }
+  });
 
   // update results counter
   let span = document.getElementById("book-num");
@@ -143,40 +87,39 @@ function populateEntriesJson(json) {
   console.log("data populated"); // FOR TESTING
 }
 
-function callAPI() {
-  // call the book API
-
+function buildUrl() {
+  let query = form.elements["search-query"].value;
+  query = query.replaceAll(" ", "+"); // replace spaces with +
+  return queryBase + "q=" + query;
 }
 
-function viewCollection() {
-  fetch(default_data)
+function searchCollection() {
+  validateQuery();
+  let url = buildUrl();
+  console.log(url); // FOR TESTING
+
+  fetch(url)
     .then(resp => resp.json())
-    .then(json => populateEntriesJson(json));
+    .then(json => populateEntries(json))
+    .then(() => {
+      // display the results header (if not already displayed)
+      let header = document.querySelector("h2.invisible");
+      if (header) {
+        header.classList.remove("invisible");
+      }
+    });
 }
 
-// initialization function
+/**
+ * Initialization function.
+ */
 (function () {
   // add event listener the search form submit button
   form.addEventListener('submit', ev => {
     ev.preventDefault();
     ev.stopPropagation();
 
-    // call api / search methods
-
-
-    // create and add the book entry elements to the DOM if they haven't been added yet
-    // if (container.childElementCount == 0) {
-    //   createElements();
-    //   createBtn();
-    // }
-
-    // populate the entries based on the data from the search query
-    // populateEntries();
-
-    let header = document.querySelector("h2.invisible");
-    header.classList.remove("invisible");
-    header.classList.add("visible");
-
-    viewCollection();
+    // fetch the data and populate the page with the results
+    searchCollection();
   });
 })();
