@@ -123,4 +123,4 @@ function setBook() {
 }
 
 // export functions
-export { populateEntries, setBook };
+export { populateEntries, setBook, data };

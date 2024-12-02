@@ -1,7 +1,7 @@
 // script for calling the book api and populating the page with entries
 
 // import functions from book_entries.js
-import { populateEntries, setBook } from "./book_entries.js";
+import { populateEntries, setBook, data } from "./book_entries.js";
 
 // declare constant variables
 const queryBase = "https://openlibrary.org/search.json?q=";

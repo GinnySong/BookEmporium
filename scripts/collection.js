@@ -1,7 +1,7 @@
 // script for the collection page
 
 // import functions from book_entries.js
-import { populateEntries, setBook } from "./book_entries.js";
+import { populateEntries, setBook, data } from "./book_entries.js";
 
 function editBookButtons() {
   document.querySelector("#edit-btn").addEventListener('click', () => {
