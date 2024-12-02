@@ -5,6 +5,7 @@
 const imgBase = "https://covers.openlibrary.org/b/id/";
 const container = document.getElementById("books-container");
 let current_book;
+let data = { 'collection': [], 'readLater': [] };
 
 /**
  * Creates a book entry to add to the populated page.
