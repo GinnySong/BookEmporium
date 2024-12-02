@@ -16,6 +16,8 @@ function createBookEntry(entry) {
   // create figure element
   let figure = document.createElement("figure");
   figure.classList.add("book");
+  figure.setAttribute("data-bs-toggle", "modal");
+  figure.setAttribute("data-bs-target", "#add-modal");
 
   // create image element for book cover
   let img = document.createElement("img");
