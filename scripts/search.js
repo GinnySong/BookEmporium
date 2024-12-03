@@ -13,7 +13,7 @@ function saveBookButtons() {
     data.collection.push(setBook());
 
     // store the data locally
-    let json = JSON.stringify(data);
+    let json = JSON.stringify(data.collection);
     localStorage.setItem("collection", json);
     console.log("clicking 'add to collection' button!");
   });
@@ -23,7 +23,7 @@ function saveBookButtons() {
     data.readLater.push(setBook());
 
     // store the data locally
-    let json = JSON.stringify(data);
+    let json = JSON.stringify(data.readLater);
     localStorage.setItem("readLater", json);
     console.log("clicking 'add to read later' button!");
   });
@@ -65,6 +65,8 @@ function buildUrl() {
           header.classList.remove("invisible");
         }
       });
+
+    // book saving functionality
     saveBookButtons();
   });
 })();
