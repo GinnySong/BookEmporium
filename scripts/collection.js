@@ -1,7 +1,7 @@
 // script for the collection page
 
 // import functions from book_entries.js
-import { populateEntries, setBook, data } from "./book_entries.js";
+import { populateEntries, setBook, data, current_book } from "./book_entries.js";
 
 function editBookButtons() {
   document.querySelector("#edit-btn").addEventListener('click', () => {
@@ -46,6 +46,8 @@ function buildUrl() {
           header.classList.remove("invisible");
         }
       });
+
+    // book editing functionality
     editBookButtons();
   }
 })();

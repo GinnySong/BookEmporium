@@ -59,9 +59,9 @@ function createBookEntry(entry) {
 /**
  * Populates the page with the results of the new query.
  * 
- * @param {object} data The data used to populate the results. Either from the API query or from localStorage.
+ * @param {object} data_entries The data used to populate the results. Either from the API query or from localStorage.
  */
-function populateEntries(data) {
+function populateEntries(data_entries) {
   // remove old entries
   for (let child of Array.from(container.children)) {
     child.remove();
@@ -69,7 +69,7 @@ function populateEntries(data) {
 
   // build new entries
   let i = 0;
-  data.forEach(entry => {
+  data_entries.forEach(entry => {
     if (i == 10) { // stop at 10 for now
       return;
     }
@@ -87,29 +87,6 @@ function populateEntries(data) {
   console.log("data populated"); // FOR TESTING
 }
 
-/**
- * Adds button elements to book entries.
- */
-function createBtn() {
-  let figuresArray = container.querySelectorAll("figure");
-  figuresArray.forEach((figure) => {
-    // create button
-    let btn = document.createElement("input");
-    btn.type = "button";
-    btn.value = "Add";
-    btn.classList.add("search-entry-btn", "add-btn");
-
-    btn.addEventListener('click', () => {
-      // TO BE IMPLEMENTED
-      // save book to local storage, add the book data to the json file(?), change the button's text to "favorited"
-      btn.value = "Favorited";
-      console.log("adding book!");
-    });
-
-    figure.appendChild(btn);
-  });
-}
-
 function setBook() {
   let modalForm = document.querySelector("#add-modal form");
   // make a new book object with the form values
@@ -123,4 +100,4 @@ function setBook() {
 }
 
 // export functions
-export { populateEntries, setBook, data };
+export { populateEntries, setBook, data, current_book };
