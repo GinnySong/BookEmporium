@@ -3,14 +3,23 @@
 // import functions from book_entries.js
 import { populateEntries, setBook, data, current_book } from "./book_entries.js";
 
+function toggleFilterForm() {
+  let filter = document.getElementById("search-form");
+  if (filter.classList.contains("invisible")) {
+    filter.classList.remove("invisible");
+  } else {
+    filter.classList.add("invisible");
+  }
+}
+
 function editBookButtons() {
-  document.querySelector("#edit-btn").addEventListener('click', () => {
+  document.getElementById("edit-btn").addEventListener('click', () => {
     // add the book to the data list
     let index = data.collection.indexOf(current_book);
     data.collection[index] = setBook();
 
     // store the data locally
-    let json = JSON.stringify(data);
+    let json = JSON.stringify(data.collection);
     localStorage.setItem('collection', json);
     console.log("clicking 'edit book' button!");
   });
@@ -50,4 +59,14 @@ function buildUrl() {
     // book editing functionality
     editBookButtons();
   }
+
+  // toggle the filter form's visibility when the filter button is clicked
+  document.getElementById("filter-btn").addEventListener('click', () => toggleFilterForm());
+
+  // clear all books in collection from localStorage
+  document.getElementById("clear-all-btn").addEventListener('click', () => {
+    localStorage.removeItem("collection");
+    data.collection = [];
+    populateEntries(data.collection);
+  });
 })();
