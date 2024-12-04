@@ -36,11 +36,12 @@ body {
   border-radius: 15px;
   padding: .25em .5em .25em .5em;
   transition: background .15s ease;
-  box-shadow: 1px .4px .2px grey;
+  box-shadow: 0 2px 2.5px grey;
 }
 
 .btn {
   color: black !important;
+  font-size: 20px;
 }
 
 .btn-primary {
