@@ -22,7 +22,7 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Your Book Emporium</a>
+        <a class="navbar-brand heading" href="index.html">Your Book Emporium</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
           aria-label="Toggle navigation">
@@ -32,16 +32,16 @@
         <div class="navbar-collapse collapse flex-grow-0" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link btn" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Find New Books</a>
+              <a class="nav-link btn" href="#">Find New Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="collection.html">My Collection</a>
+              <a class="nav-link btn" href="collection.html">My Collection</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">To Read</a>
+              <a class="nav-link btn" href="#">To Read</a>
             </li>
           </ul>
         </div>
@@ -50,7 +50,7 @@
   </header>
 
   <main class="flex-container">
-    <section>
+    <div class="section">
       <h1>Search</h1>
       <p>
         Search for books. You can never have too many, after all. The world is your library!
@@ -67,13 +67,13 @@
           </select>
           <label for="search-query">Search Query:</label>
           <input type="text" name="search-query" id="search-query" placeholder="keyword" required>
-          <input type="submit" value="Search">
+          <input type="submit" class="btn btn-secondary" value="Search">
         </fieldset>
       </form>
-    </section>
+    </div>
 
     <section>
-      <h2 class="invisible"><span id="book-num">[0]</span> Results</h2>
+      <h2 class="invisible heading"><span id="book-num">[0]</span> Results</h2>
       <div id="books-container">
       </div>
     </section>
@@ -89,19 +89,19 @@
           <div class="modal-body">
             <form>
               <div class="row">
-                <label for="title">Title:</label>
+                <label for="book-title">Title:</label>
                 <input type="text" name="title" id="book-title" required>
               </div>
               <div class="row">
-                <label for="author">Author(s):</label>
+                <label for="book-author">Author(s):</label>
                 <input type="text" name="author" id="book-author" required>
               </div>
               <div class="row">
-                <label for="isbn">ISBN:</label>
+                <label for="book-isbn">ISBN:</label>
                 <input type="text" name="isbn" id="book-isbn" readonly>
               </div>
               <div class="row">
-                <label for="cover-id" hidden>Cover ID:</label>
+                <label for="book-cover-id" hidden>Cover ID:</label>
                 <input type="text" name="cover-id" id="book-cover-id" readonly hidden>
               </div>
             </form>
