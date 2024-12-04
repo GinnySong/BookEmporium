@@ -47,14 +47,13 @@ function buildUrl() {
   if (storedCollection) {
     data.collection = storedCollection;
     console.log(data); // FOR TESTING
-    populateEntries(data.collection)
-      .then(() => {
-        // display the results header (if not already displayed)
-        let header = document.querySelector("h2.invisible");
-        if (header) {
-          header.classList.remove("invisible");
-        }
-      });
+    populateEntries(data.collection);
+
+    // display the results header (if not already displayed)
+    let header = document.querySelector("h2.invisible");
+    if (header) {
+      header.classList.remove("invisible");
+    }
 
     // book editing functionality
     editBookButtons();
