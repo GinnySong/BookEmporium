@@ -3,6 +3,7 @@ form {
   margin: 1em 0 .25em 0;
   padding: .75em;
   border-radius: 25px;
+  transition: visibility 0.25s ease, opacity 0.25s ease;
 }
 
 form input[type="text"]:read-only {
@@ -15,9 +16,8 @@ form label {
 }
 
 form [type="submit"] {
-  background: var(--secondary);
   display: block;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 1.5em 0 0 0;
   padding: .25em .5em .25em .5em;
 }
