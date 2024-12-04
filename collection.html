@@ -32,16 +32,16 @@
         <div class="navbar-collapse collapse flex-grow-0" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link btn" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="search.html">Find New Books</a>
+              <a class="nav-link btn" href="search.html">Find New Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">My Collection</a>
+              <a class="nav-link btn" href="#">My Collection</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">To Read</a>
+              <a class="nav-link btn" href="#">To Read</a>
             </li>
           </ul>
         </div>
@@ -50,13 +50,19 @@
   </header>
 
   <main class="flex-container">
-    <section>
+    <div class="section">
       <h1>View Collection</h1>
       <p>
         View the books in your collection. Click on a book to edit its information or remove it from your collection.
       </p>
 
-      <form id="search-form">
+      <div id="book-action-section">
+        <button type="button" class="btn book-action" id="filter-btn">Filter</button>
+        <button type="button" class="btn btn-primary book-action" id="export-btn">Export All</button>
+        <button type="button" class="btn book-action" id="clear-all-btn">Clear All</button>
+      </div>
+
+      <form class="invisible" id="search-form">
         <fieldset>
           <legend>Filter Collection</legend>
           <label for="search-by">Filter By:</label>
@@ -67,10 +73,10 @@
           </select>
           <label for="search-query">Keyword:</label>
           <input type="text" name="search-query" id="search-query" placeholder="keyword" required>
-          <input type="submit" value="Filter">
+          <input type="submit" class="btn btn-secondary" aria-label="Filter" value="Filter">
         </fieldset>
       </form>
-    </section>
+    </div>
 
     <section>
       <h2 class="invisible"><span id="book-num">[0]</span> Results</h2>
@@ -89,19 +95,19 @@
           <div class="modal-body">
             <form>
               <div class="row">
-                <label for="title">Title:</label>
+                <label for="book-title">Title:</label>
                 <input type="text" name="title" id="book-title" required>
               </div>
               <div class="row">
-                <label for="author">Author(s):</label>
+                <label for="book-author">Author(s):</label>
                 <input type="text" name="author" id="book-author" required>
               </div>
               <div class="row">
-                <label for="isbn">ISBN:</label>
+                <label for="book-isbn">ISBN:</label>
                 <input type="text" name="isbn" id="book-isbn" readonly>
               </div>
               <div class="row">
-                <label for="cover-id" hidden>Cover ID:</label>
+                <label for="book-cover-id" hidden>Cover ID:</label>
                 <input type="text" name="cover-id" id="book-cover-id" readonly hidden>
               </div>
             </form>
@@ -114,7 +120,6 @@
         </div>
       </div>
     </div>
-  </main>
   </main>
 
   <script src="scripts/navbar.js"></script>
