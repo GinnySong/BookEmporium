@@ -1,0 +1,61 @@
+<!--
+must include at least an ordered list where you briefly 
+explain how your site meets all of these requirements 
+(or if you aren't going to meet a requirement, you explicitly 
+write that you did not meet that requirement).
+
+i.e. first item in your list should say like 
+1. this is the url to our github repo which is shared with each other 
+      and the prof: http://github.com/...
+2. this is the url to our deployed application where anyone could 
+      try our app: http://example.github.io/...
+...
+13. Right now we are thinking that the 2 APIs we will use are 
+      https://developers.giphy.com/docs/api#quick-start-guide and 
+      https://developer.spotify.com/documentation/web-api/reference
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Report - Your Book Emporium</title>
+</head>
+<body>
+  <h1>Milestone 2 Report</h1>
+  <ol>
+    <li>github repo url: https://github.com/GinnySong/BookEmporium</li>
+    <li>url to the deployed application: https://ginnysong.github.io/BookEmporium/index.html</li>
+    <li>this is report.html, tada!</li>
+    <li>media queries: 
+      <ul>
+        <li>books.css: books are displayed in rows of 3 on large screens and 1x1 on small screens</li>
+        <li>forms.css: forms elements are displayed as inline blocks (horizontally) on large screens and as blocks (vertically) on small screens</li>
+        <li>shared.css: the navbar nav-links are collapsed on small screens and expanded on large screens (using bootstrap)</li>
+      </ul>
+    </li>
+    <li>Five separate pages: 
+      <ul>
+        <li>index.html</li>
+        <li>search.html</li>
+        <li>collection.html</li>
+        <li>wishlist.html (pending)</li>
+        <li>readlater.html (pending)</li>
+      </ul>
+    </li>
+    <li>header: the navbar serves as the header. it includes navigation links and the website logo (aka the website title)</li>
+    <li>nav-links: located in the navbar! (home, search, collection, to-read (pending)</li>
+    <li>images: currently the only images included in the site are the book covers, which are accessed via url and not stored locally. the alt attributes of each of the book covers are the book title followed by the author.</li>
+    <li>validation: every html page and stylesheet validates without warnings or errors using the Nu Validator</li>
+    <li>font faces: 
+      <ul>
+        <li>heading fonts are rendered in the following order: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif</li>
+        <li>paragraph fonts are rendered in the following order: Georgia, 'Times New Roman', Times, serif</li>
+      </ul>
+    </li>
+    <li>form: the site includes a search form. The input is required, so the url sent to the API cannot be empty.</li>
+    <li>links to external sites: the book information modal will include a link to a wikipedia article about the book.</li>
+    <li>network requests: calling Open Library book API. may call amazon to pull up a listing for each book.</li>
+  </ol>
+</body>
+</html>
