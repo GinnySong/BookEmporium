@@ -34,7 +34,7 @@ body {
 
 [type="button"], [type="submit"], .btn {
   border-radius: 15px;
-  padding: .25em .5em .25em .5em;
+  padding: .25em .5em;
   transition: background .15s ease;
   box-shadow: 0 2px 2.5px grey;
 }
@@ -42,11 +42,11 @@ body {
 .btn {
   color: black !important;
   font-size: 20px;
+  border: none !important;
 }
 
 .btn-primary {
   background: var(--secondary);
-  border: none;
 }
 
 .btn-primary:hover {
@@ -76,15 +76,14 @@ main {
   padding: 1em;
 }
 
-.heading, .heading *, h1, h2, h3 {
+.heading, .heading *, h1, .navbar-brand {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
 }
 
-h1, .heading {
+.heading, h1, .navbar-brand {
   display: block;
-  font-size: 40px;
   margin-right: 1em;
-  margin-bottom: .5em;
+  padding: .25em 0;
 }
 
 section, .section {
@@ -120,7 +119,7 @@ section, .section {
 }
 
 .navbar-brand {
-  font-size: x-large;
+  font-size: 2rem;
 }
 
 .nav-link:link, .nav-link:visited {
