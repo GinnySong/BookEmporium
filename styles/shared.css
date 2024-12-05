@@ -76,11 +76,11 @@ main {
   padding: 1em;
 }
 
-.heading, .heading *, h1, .navbar-brand {
+.heading, .heading *, h1 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
 }
 
-.heading, h1, .navbar-brand {
+.heading, h1 {
   display: block;
   margin-right: 1em;
   padding: .25em 0;
