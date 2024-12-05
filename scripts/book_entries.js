@@ -99,5 +99,20 @@ function setBook() {
   return book;
 }
 
+function exportBooks(book_data) {
+  let blob = new Blob([JSON.stringify(book_data)], { type: 'text/plain' });
+  
+  // create and activate a link where the url is the blob
+  let url = window.URL.createObjectURL(blob);
+  let link = document.createElement('a');
+  link.href = url;
+  link.download = 'book_data.json';
+  link.click();
+
+  // delete url and link objects
+  window.URL.revokeObjectURL(url);
+  link.remove();
+}
+
 // export functions
-export { populateEntries, setBook, data, current_book };
+export { populateEntries, setBook, exportBooks, data, current_book };

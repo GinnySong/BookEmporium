@@ -62,6 +62,9 @@ function buildUrl() {
   // toggle the filter form's visibility when the filter button is clicked
   document.getElementById("filter-btn").addEventListener('click', () => toggleFilterForm());
 
+  // export all books in collection to a json file
+  document.getElementById("export-btn").addEventListener('click', () => exportBooks(data.collection));
+
   // clear all books in collection from localStorage
   document.getElementById("clear-all-btn").addEventListener('click', () => {
     localStorage.removeItem("collection");
