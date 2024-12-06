@@ -1,7 +1,7 @@
 // script for the collection page
 
 // import functions from book_entries.js
-import { populateEntries, setBook, data, current_book } from "./book_entries.js";
+import { populateEntries, setBook, exportBooks, data, current_book } from "./book_entries.js";
 
 function toggleFilterForm() {
   let filter = document.getElementById("search-form");

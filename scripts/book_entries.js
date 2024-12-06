@@ -105,7 +105,7 @@ function setBook() {
 
 function exportBooks(book_data) {
   let blob = new Blob([JSON.stringify(book_data)], { type: 'text/plain' });
-  
+
   // create and activate a link where the url is the blob
   let url = window.URL.createObjectURL(blob);
   let link = document.createElement('a');
@@ -118,5 +118,17 @@ function exportBooks(book_data) {
   link.remove();
 }
 
+function checkDuplicate(book, list) {
+  let dups = list.filter((dup) => dup.isbn == book.isbn);
+  return dups.length > 0;
+}
+
+function displayError(container, msg) {
+  let error_msg = document.createElement('p');
+  error_msg.classList.add('alert', 'alert-danger');
+  error_msg.textContent = msg;
+  container.insertBefore(error_msg, container.children[0]);
+}
+
 // export functions
-export { populateEntries, setBook, exportBooks, data, current_book };
+export { populateEntries, setBook, exportBooks, checkDuplicate, displayError, data, current_book };

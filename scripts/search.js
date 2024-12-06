@@ -1,7 +1,7 @@
 // script for calling the book api and populating the page with entries
 
 // import functions from book_entries.js
-import { populateEntries, setBook, data } from "./book_entries.js";
+import { populateEntries, setBook, checkDuplicate, displayError, data } from "./book_entries.js";
 
 // declare constant variables
 const queryBase = "https://openlibrary.org/search.json?q=";
@@ -9,8 +9,17 @@ const form = document.getElementById("search-form");
 
 function saveBookButtons() {
   document.querySelector("#collection-btn").addEventListener('click', () => {
+    let book = setBook();
+
+    // check for duplicates
+    if (checkDuplicate(book, data.collection)) {
+      console.log("This book is already in your collection!"); // FOR TESTING
+      displayError(document.querySelector("#add-modal .modal-body"), "This book is already in your collection!");
+      return;
+    }
+
     // add the book to the data list
-    data.collection.push(setBook());
+    data.collection.push(book);
 
     // store the data locally
     let json = JSON.stringify(data.collection);
@@ -19,8 +28,17 @@ function saveBookButtons() {
   });
 
   document.querySelector("#read-later-btn").addEventListener('click', () => {
+    let book = setBook();
+
+    // check for duplicates
+    if (checkDuplicate(book, data.collection)) {
+      console.log("This book is already on your read later list!"); // FOR TESTING
+      displayError(document.querySelector("#add-modal .modal-body"), "This book is already on your read later list!");
+      return;
+    }
+
     // add the book to the data list
-    data.readLater.push(setBook());
+    data.readLater.push(book);
 
     // store the data locally
     let json = JSON.stringify(data.readLater);
