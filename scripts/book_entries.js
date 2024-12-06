@@ -47,8 +47,6 @@ function createBookEntry(entry) {
       form.isbn.value = entry.isbn[0];
     }
     form["cover-id"].value = entry.cover_i;
-
-    current_book = data.collection.find((book) => book.isbn == entry.isbn);
   });
 
   container.append(figure);
@@ -76,6 +74,12 @@ function populateEntries(data_entries) {
     // skip entries with no isbn
     if (typeof entry.isbn != 'undefined') {
       createBookEntry(entry);
+
+      // set the current book whose info is being shown
+      if (data_entries.length > 0) {
+        current_book = data_entries.find((book) => book.isbn == entry.isbn);
+      }
+
       i++;
     }
   });

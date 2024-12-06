@@ -13,7 +13,9 @@ function toggleFilterForm() {
 }
 
 function editBookButtons() {
+  // add click event listener for the edit button
   document.getElementById("edit-btn").addEventListener('click', () => {
+    console.log("clicking 'edit' button!");
     // add the book to the data list
     let index = data.collection.indexOf(current_book);
     data.collection[index] = setBook();
@@ -21,20 +23,25 @@ function editBookButtons() {
     // store the data locally
     let json = JSON.stringify(data.collection);
     localStorage.setItem('collection', json);
-    console.log("clicking 'edit book' button!");
-  });
-}
 
-/**
- * Construct a URL based on the value of the query.
- * 
- * @returns The constructed URL.
- */
-function buildUrl() {
-  // query input has 'required' attribute, so will not be empty
-  let query = form.elements["search-query"].value;
-  query = query.replaceAll(" ", "+"); // replace spaces with +
-  return queryBase + query;
+    // repopulate entries
+    populateEntries(data.collection);
+  });
+
+  
+  // remove a book
+  document.getElementById("remove-btn").addEventListener('click', () => {
+    console.log("clicking 'remove' button!");
+    let index = data.collection.indexOf(current_book);
+    data.collection.splice(index, 1);
+
+    // store the data locally
+    let json = JSON.stringify(data.collection);
+    localStorage.setItem('collection', json);
+
+    // repopulate entries
+    populateEntries(data.collection);
+  });
 }
 
 /**
